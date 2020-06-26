@@ -1,17 +1,21 @@
 import Counter from '../models/Counter.mjs'
+import EnemyFactory from '../models/EnemyFactory.mjs'
 
 console.log('Main Started')
 
 const counter = Counter(50)
+const enemyFactory = EnemyFactory()
 
 
 
 $('#test1').click(function(){
   //counter.stopCounting()
+  
+  enemyFactory.setEnemies(enemyFactory.createEnemies([{type:1,amount:5}]))
 })
 
 $('#test2').click(function(){
-  //counter.startCounting(1000)
+  console.log(enemyFactory.getEnemies())
 })
 
 $('#test3').click(function(){
