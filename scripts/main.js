@@ -1,10 +1,36 @@
-import Counter from '../models/Counter.mjs'
-import EnemyFactory from '../models/EnemyFactory.mjs'
+import Counter from '../modules/Counter.mjs'
+import EnemyFactory from '../modules/EnemyFactory.mjs'
+import Renderer from '../views/Renderer.mjs'
+import GameModule from '../modules/GameModule.mjs'
 
 console.log('Main Started')
 
+
+const gameModule = GameModule()
+gameModule.initiateGame()
+
+const renderer = Renderer()
+renderer.renderInitialLoad()
+
+$('body').on('click', '#btn-close-welcome', function(){
+
+  console.log('BTN: Enter Game')
+  renderer.renderGameScreen($('#root-container'))
+
+})
+
+
+
+
 const counter = Counter(50)
 const enemyFactory = EnemyFactory()
+
+
+//renderer.initialLoad()
+
+
+
+
 
 
 

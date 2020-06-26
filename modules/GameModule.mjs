@@ -1,18 +1,21 @@
+import Counter from '../modules/Counter.mjs'
+import EnemyFactory from '../modules/EnemyFactory.mjs'
 
+const GameModule = (initialSeconds = 0, enemies = []) => {
 
-const gameModule = (initialSeconds = 0, enemies = []) => {
-
-   _gameData = {
+   const _gameData = {
     initialSeconds: initialSeconds,
     secondsLeft: 0,
     currentLevel: 1,
     enemies:[],
-    enemiesLeft: enemiesLeft,
+    enemiesLeft: enemies.length,
     secondsLeft: initialSeconds,
 
    }
 
    const initiateGame = () => {
+
+    console.log('Game initializing')
 
    }
    const getEnemies = () => {
@@ -26,3 +29,5 @@ const gameModule = (initialSeconds = 0, enemies = []) => {
     initiateGame
    }
 }
+
+export default GameModule
