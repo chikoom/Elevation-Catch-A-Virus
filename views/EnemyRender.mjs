@@ -8,7 +8,7 @@ const EnemyRender = () => {
   ]
 
   const renderEnemy = (enemy) => {
-    const $enemy = $(`<div class="enemy animate-float" data-id="${enemy.id}"></div>`)
+    const $enemy = $(`<div class="enemy animate-float" data-type="${enemy.type}" data-id="${enemy.id}"></div>`)
     $enemy.css('top', `${enemy.position[0]}%`)
     $enemy.css('left',`${enemy.position[1]}%`)
 

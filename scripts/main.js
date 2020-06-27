@@ -21,18 +21,21 @@ You might also consider moving your update-method into a GameState class and you
 */
 
 
+    
+const audioElement = document.createElement('audio')
+audioElement.setAttribute('src', '../assets/sounds/1_d.mp3')
 
 
-const gameStart = () => {
-
-
-}
 
 $('body').on('click', '#btn-close-welcome', function(){
 
   console.log('BTN: Enter Game')
   renderer.renderGameScreen($('#root-container'),gameModule.getState())
   renderer.renderGameArea($('#game-container-middle'),gameModule.getState())
+
+  const audioElement = document.createElement('audio')
+    audioElement.setAttribute('src', '../assets/sounds/2_d.mp3')
+    audioElement.play();
 
 })
 
@@ -52,11 +55,17 @@ $('body').on('click', '.enemy', function(){
 
   if(!$(this).hasClass('dead') && gameModule.getState().gameOn){
 
+    
+
     const newEnemies = gameModule.enemyClicked($(this).data().id)
     renderer.enemyDead($(this))
     renderer.addEnemies(newEnemies)
     renderer.enemiesLeft(gameModule.getState().score)
     renderer.levelUpdate(gameModule.getState().currentLevel)
+
+    const audioElement = document.createElement('audio')
+    audioElement.setAttribute('src', `../assets/sounds/${$(this).data().type}_d.mp3`)
+    audioElement.play();
 
   }
   

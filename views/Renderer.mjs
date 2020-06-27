@@ -46,8 +46,10 @@ const Renderer = () => {
   }
 
   const enemyDead = (enemy) => {
+    $(enemy).addClass('dead')
     $(enemy).removeClass('animate-float')
-    $(enemy).css('background', `url(../assets/enemies/1_d.png)`)
+    $(enemy).css('background', `url(../assets/enemies/${$(enemy).data().type}_d.png)`)
+    
     $(enemy).css('background-size', `100%`)
     $(enemy).fadeOut()
   }
