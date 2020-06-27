@@ -4,7 +4,8 @@ const EnemyRender = () => {
   const enemiesImgs = [
     enemiesImgsPath+'1.png',
     enemiesImgsPath+'1.png',
-    enemiesImgsPath+'2.png'
+    enemiesImgsPath+'2.png',
+    enemiesImgsPath+'3.png'
   ]
 
   const renderEnemy = (enemy) => {

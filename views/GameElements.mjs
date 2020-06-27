@@ -15,7 +15,19 @@ const GameElements = () => {
   }
 
   const updateTimeCountBar = (countNumber = 0) => {
+    
     $(`#time-counter-number`).text(countNumber)
+    if(countNumber < 5) {
+      $(`#time-counter-number`).addClass('animate-pump yellow')
+      setTimeout(function(){
+        $(`#time-counter-number`).removeClass('animate-pump')
+      },500)
+    }else{
+      $(`#time-counter-number`).removeClass('yellow')
+    }
+    
+    
+    
     return true
   }
 

@@ -137,25 +137,18 @@ const GameModule = () => {
             _gameState.enemies.splice(i,1)
           }
         }
-        switch (_gameState.currentLevel) {
-          case 2:
-            _gameState.enemies = enemyFactory.createEnemies([
-                                                              {type:1,amount:-1+5+(_gameState.currentLevel++)},
-                                                              {type:2,amount:1}
-                                                            ])
-            break;
-          
-          case 2:
-            _gameState.enemies = enemyFactory.createEnemies([
-                                                              {type:1,amount:-2+5+(_gameState.currentLevel++)}, 
-                                                              {type:2,amount:2}
-                                                            ])
-            break;
 
-          default:
-            _gameState.enemies = enemyFactory.createEnemies([{type:1,amount:5+(_gameState.currentLevel++)}])
-        }
-          
+        const type2Amount = (parseInt(_gameState.currentLevel)%2 === 0) ? parseInt(_gameState.currentLevel/2) : 1;
+        const type3Amount = (parseInt(_gameState.currentLevel)%3 === 0) ? parseInt(_gameState.currentLevel/3) : 1;
+
+        const totalNew = type2Amount+type3Amount
+
+        _gameState.enemies = enemyFactory.createEnemies([
+          {type:1,amount:-totalNew+5+(_gameState.currentLevel++)},
+          {type:2,amount:type2Amount},
+          {type:3,amount:type3Amount}
+        ])
+
         
         _gameState.enemiesLeft = _gameState.enemies.length
         console.log("new enemies created:"+_gameState.enemies)
