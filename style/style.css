@@ -40,7 +40,7 @@ body, html {
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-rows: 1fr 9fr 2fr;
+    grid-template-rows: 1fr 10fr 1fr;
 }
 
 
@@ -56,6 +56,14 @@ body, html {
     background-color: #edf8e7;
 }
 
+#game-container-middle{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    background-color: #ebfbff;
+}
+
 #time-counter-bar{
     display: grid;
     width: 80%;
@@ -65,7 +73,7 @@ body, html {
     background-color: #d7f5c7;
 }
 #time-counter-text{
-    text align-center;
+    text-align:center;
     width:100%;
     display:grid;
     grid-template-columns: 5fr 2fr 5fr;
@@ -144,6 +152,92 @@ body, html {
 #game-area-container{
     width:100%;
     height: 100%;
+    position: relative;
+    background: url('/assets/bgs/1.jpg');
+    background-size: 120% 150%;
+    background-position: center;
+    animation: getBig 6s ease-in-out infinite;
+    
+}
+
+@keyframes getBig {
+	0% {
+		background-size: 125% 145%;
+	}
+	50% {
+        background-size: 120% 150%;
+	}
+	100% {
+		background-size: 125% 145%;
+	}
+}
+
+/*
+** ENEMIES
+*/
+
+.enemy{
+    width:50px;
+    height: 50px;
+    position: absolute;
+    background-size: 100%;
+    cursor: pointer;
+    
+}
+
+.animate-float{
+  animation: float 6s ease-in-out infinite;
+}
+
+.dead{
+  background:url('../assets/enemies/1_d.png');
+  background-size: 100%;
+}
+
+@keyframes float {
+	0% {
+		transform: translatey(0px) rotate(90deg) scale(1,1);
+	}
+	50% {
+		transform: translatey(-10px) rotate(0deg) scale(1.2,1.2);
+	}
+	100% {
+		transform: translatey(0px) rotate(90deg) scale(1,1);
+	}
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+/*
+** GAME OVER
+*/
+
+#game-over-conatiner{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 9999;
+    background-color: rgba(215,32,32,0.8);
+    display:grid;
+    align-content: center;
+    justify-content: center;
+}
+
+#game-over-inner{
+    background-color: #fff;
+    text-align: center;
+    padding: 20px;
+    max-width: 90%;
+    width:400px;
 }
 
 

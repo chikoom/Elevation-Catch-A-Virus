@@ -14,16 +14,26 @@ const GameElements = () => {
 
   }
 
+  const updateTimeCountBar = (countNumber = 0) => {
+    $(`#time-counter-number`).text(countNumber)
+    return true
+  }
+
   const renderEnemiesCountBar = (countNumber = 0) => {
     const $enemiesCount = $(`
                       <div id="enemies-count-bar">
                         <div id="enemies-count-text">
-                          <span id="enemies-count-number">${countNumber} </span><span>Enemies Left</span>
+                          <span id="enemies-count-number">${countNumber} </span><span>Enemies Killed</span>
                         </div>
                       </div>
                     `)
 
     return $enemiesCount
+  }
+
+  const updateEnemiesCountBar = (countNumber = 0) => {
+    $(`#enemies-count-number`).text(countNumber)
+    return true
   }
 
   const renderStartButton = (text = 'START') => {
@@ -38,6 +48,12 @@ const GameElements = () => {
     return $startButton
   }
 
+  const updateStartButton = (text) => {
+
+      $('#btn-start').text(text)
+
+  }
+
   const renderLevelCounter = (level = 1) => {
     const $levelCount = $(`
                       <div id="level-count-bar">
@@ -50,12 +66,21 @@ const GameElements = () => {
     return $levelCount
   }
 
+  const updateLevelCounter = (level = 1) => {
+    $(`#level-count-number`).text(level)
+    return true
+  }
+
 
   return {
     renderEnemiesCountBar,
+    updateEnemiesCountBar,
     renderStartButton,
+    updateStartButton,
     renderLevelCounter,
-    renderTimeCountBar
+    updateLevelCounter,
+    renderTimeCountBar,
+    updateTimeCountBar
   }
 }
 

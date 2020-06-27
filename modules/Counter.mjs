@@ -6,20 +6,23 @@ const Counter = (seconds = 0) => {
     counterInterval: 0
   }
 
-  const startCounting = (miliseconds) => {
+  const startCounting = (intervalCallback, endCallback) => {
 
     if(!_counterData.isCounting) {
       _counterData.counterInterval = setInterval(function(){
         console.log(`count: ${_counterData.seconds}`)
         --_counterData.seconds
-      },miliseconds)
+        intervalCallback()
+      },1000)
       console.log('Counter Started')
+      
     }else{
       console.log('Counter already counting')
       return false
     }
-    _counterData.isCounting = true  
-    return _counterData.isCounting
+    _counterData.isCounting = true
+    
+    return 
   }
 
   const stopCounting = () => {

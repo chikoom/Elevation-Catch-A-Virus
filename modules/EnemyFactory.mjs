@@ -22,7 +22,7 @@ const EnemyFactory = () => {
     return newEnemyPosition
   }
 
-  //[{type:1,amount:5}]
+  //createEnemies[{type:1,amount:5}]
   const createEnemies = (enemytypes) => {
 
     const newEnemies = []
@@ -31,6 +31,7 @@ const EnemyFactory = () => {
       for(let j = 0 ; j < enemytypes[i].amount ; j++){
 
         newEnemies.push({
+          id: _enemyIds++,
           type:enemytypes[i].type,
           position:getEmenyOriginalPosition(),
         })
