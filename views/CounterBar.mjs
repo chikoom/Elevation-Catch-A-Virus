@@ -4,7 +4,7 @@ const CounterBar = () => {
     const $counterBar = $(`
                       <div id="counter-bar">
                         <div id="counter-text">
-                          <span>You Have: </span><span id="counter-number">${countNumber} </span><span>Seconds Left</span>
+                          <span>You Have </span><span id="counter-number">${countNumber} </span><span>Seconds Left</span>
                         </div>
                       </div>
                     `)

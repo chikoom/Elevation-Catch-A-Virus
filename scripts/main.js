@@ -12,15 +12,6 @@ renderer.renderInitialLoad()
 const gameModule = GameModule()
 gameModule.initiateGame(1,5,[{type:1,amount:5}],renderer.timeTick,renderer.endGame)
 
-
-
-/*
-  A common technique is to put the game loop method into an own class named Game or similar and create a new Game in the main-method. An advantage of this architecture is that you can have multiple Games which exist independent of each other.
-
-You might also consider moving your update-method into a GameState class and your render-method into a Renderer class and pass the gamestate to it (renderer.render(gameState);). 
-*/
-
-
     
 const audioElement = document.createElement('audio')
 audioElement.setAttribute('src', '../assets/sounds/1_d.mp3')
@@ -76,41 +67,4 @@ $('body').on('click', '.enemy', function(){
 
 
 
-
-
-
-const counter = Counter(50)
-const enemyFactory = EnemyFactory()
-
-
-//renderer.initialLoad()
-
-
-
-
-
-
-
-$('#test1').click(function(){
-  //counter.stopCounting()
-  
-  enemyFactory.setEnemies(enemyFactory.createEnemies([{type:1,amount:5}]))
-})
-
-$('#test2').click(function(){
-  console.log(enemyFactory.getEnemies())
-})
-
-$('#test3').click(function(){
-  //counter.resetCounter(20)
-})
-$('#test4').click(function(){
-  //counter.addSeconds(20)
-})
-$('#test5').click(function(){
-  //counter.setSeconds(45)
-})
-$('#test6').click(function(){
-  //console.log(`getting: ${counter.getSeconds()}`)
-})
 

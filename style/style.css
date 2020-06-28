@@ -148,7 +148,6 @@ body, html {
     height: 100%;
     position: relative;
     
-    
 }
 
 @keyframes getBig {
@@ -245,6 +244,8 @@ body, html {
     padding: 20px;
     max-width: 90%;
     width:400px;
+    //cursor:url('http://w17.snunit.k12.il/images/big_arrow.png'),auto;
+
 }
 
 
@@ -281,7 +282,7 @@ body, html {
 
 #time-counter-number, #enemies-count-number, #level-count-number {
     font-family: 'Permanent Marker', cursive;
-    font-size:1.5em;
+    font-size:1.3em;
 }
 
 #enemies-count-text{
@@ -311,7 +312,6 @@ body, html {
     width:100%;
     display:grid;
     grid-template-columns: 1fr 11fr;
-    line-height: 1em;
     color:#aa1616;
     
 }

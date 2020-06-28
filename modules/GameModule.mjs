@@ -144,7 +144,7 @@ const GameModule = () => {
         const totalNew = type2Amount+type3Amount
 
         _gameState.enemies = enemyFactory.createEnemies([
-          {type:1,amount:-totalNew+5+(_gameState.currentLevel++)},
+          {type:1,amount:-totalNew+(2*_gameState.currentLevel)+_gameState.currentLevel++},
           {type:2,amount:type2Amount},
           {type:3,amount:type3Amount}
         ])

@@ -5,7 +5,7 @@ const GameElements = () => {
     const $timeCounterBar = $(`
                       <div id="time-counter-bar">
                         <div id="time-counter-text">
-                          <span class="align-right">You Have: </span><span class="center" id="time-counter-number">${countNumber} </span><span class="align-left">Seconds Left</span>
+                          <span class="align-right">You Have </span><span class="center" id="time-counter-number">${countNumber} </span><span class="align-left">Seconds Left</span>
                         </div>
                       </div>
                     `)
