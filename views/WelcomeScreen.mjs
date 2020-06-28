@@ -1,9 +1,16 @@
 const WelcomeScreen = () => {
+
   const renderWelcomeScreen = () => {
-    const $welcomeContainer = $('<div id="welcomeContainer"></div>')
-    const $btnInitiateGame = $('<button id="btn-close-welcome">ENTER GAME</button>')
-    $welcomeContainer.append($btnInitiateGame)
-    $('#root-container').append($welcomeContainer)
+    $('#root-container').append(
+      $(
+        `<div id="welcomeContainer">
+          <div id="welcome-message">
+            <h1 id="game-name">Catch The Virus</h1>
+            <button id="btn-close-welcome">ENTER GAME</button>
+          </div>
+        </div>`
+      )
+    )
   }
 
   return {

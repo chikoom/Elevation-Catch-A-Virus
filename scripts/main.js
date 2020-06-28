@@ -1,9 +1,6 @@
-import Counter from '../modules/Counter.mjs'
-import EnemyFactory from '../modules/EnemyFactory.mjs'
 import Renderer from '../views/Renderer.mjs'
 import GameModule from '../modules/GameModule.mjs'
 
-console.log('Main Started')
 
 const renderer = Renderer()
 renderer.renderInitialLoad()
@@ -20,7 +17,6 @@ audioElement.setAttribute('src', '../assets/sounds/1_d.mp3')
 
 $('body').on('click', '#btn-close-welcome', function(){
 
-  console.log('BTN: Enter Game')
   renderer.renderGameScreen($('#root-container'),gameModule.getState())
   renderer.renderGameArea($('#game-container-middle'),gameModule.getState())
 
@@ -31,8 +27,6 @@ $('body').on('click', '#btn-close-welcome', function(){
 })
 
 $('body').on('click', '#btn-start', function(){
-
-  console.log('BTN: Start Game')
 
   gameModule.btnStartClicked()
   renderer.btnStartClick(gameModule.getState())
@@ -46,8 +40,6 @@ $('body').on('click', '.enemy', function(){
 
   if(!$(this).hasClass('dead') && gameModule.getState().gameOn){
 
-    
-
     const newEnemies = gameModule.enemyClicked($(this).data().id)
     renderer.enemyDead($(this))
     renderer.addEnemies(newEnemies)
@@ -59,7 +51,6 @@ $('body').on('click', '.enemy', function(){
     audioElement.play();
 
   }
-  
 
 })
 
