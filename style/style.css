@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300;400;500;700;800;900&family=Permanent+Marker&display=swap');
+
+
+body, html {
+  margin: 0;
+}
+
+#root-container{
+    position: relative;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-weight: 800;
+    font-size:1.1em;
+}
+
+/*
+** WELCOME SCREEN
+*/
+
+
+#welcomeContainer{
+    width: 100vw;
+    height:100vh;
+    position: relative;
+    background-color: #000000;
+    background: url('../assets/bgs/welcome.jpg');
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#welcome-message{
+    width: 80%;
+    align-self: center;
+    justify-self: center;
+    cursor:pointer;
+    text-align: center;
+
+}
+
+#game-name{
+    width: 90%;
+    align-self: center;
+    justify-self: center;
+    cursor:pointer;
+    font-family: 'Permanent Marker', cursive;
+    color:#fff;
+    font-size:9vw;
+    margin: 10px auto 50px auto;
+    position: relative;
+    text-shadow: 3px 5px 9px #000;
+}
+
+#btn-close-welcome{
+
+    cursor:pointer;
+    display: block;
+    margin: 10px auto;
+    padding: 50px 75px;
+    background-color: #9e1d1d;
+    color: #fff;
+    font-weight: 700;
+    border: 0;
+    box-shadow: 0px 0px 9px #000;
+    border-radius:10px;
+}
+
+#btn-close-welcome:hover{
+    box-shadow: 0px 0px 3px #000;
+    background-color: #b31a1a;
+}
+
+/*
+** MAIN SCREEN
+*/
+
+#game-container{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 10fr 1fr;
+    background: url('/assets/bgs/1.jpg');
+    background-size: 120% 150%;
+    background-position: center;
+    animation: getBig 6s ease-in-out infinite;
+}
+
+
+/*
+** TOP TIMER BAR
+*/ 
+
+#game-container-top{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    background-color: rgba(182,9,9,0.37);
+    box-shadow: -1px 5px 7px rgba(116,116,116,0.47);
+}
+
+#game-container-middle{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+
+}
+
+#time-counter-bar{
+    display: grid;
+    width: 80%;
+    max-width: 300px;
+    justify-self: center;
+    align-content: center;
+    background-color: rgba(175,12,12,0.67);
+    border-radius: 5px;
+}
+
+
+/*
+** BOTTOM NAV BAR
+*/
+
+#game-container-bottom{
+    display: grid;
+    grid-template-columns: 4fr 4fr 4fr;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#enemies-count-bar{
+    position: relative;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.67);
+}
+
+
+
+#btn-start-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #f5e2d8;
+}
+#btn-start{
+    width:100%;
+    height: 100%;
+    cursor: pointer;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.4em;
+    color:#fff;
+    background-color: rgba(175,12,12,0.67);
+}
+
+#level-count-bar{
+    position: relative;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #f5edd8;
+    background-color: rgba(255,255,255,0.67);
+}
+
+
+/*
+** GAME AREA
+*/
+
+#game-block-screen{
+    background-color:rgba(143,4,4,0.69);
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 99999;
+}
+
+#game-area-container{
+    width:100%;
+    height: 100%;
+    position: relative;
+    cursor: url('../assets/coursors/hand_g.png'), auto;
+}
+
+@keyframes getBig {
+	0% {
+		background-size: 125% 145%;
+	}
+	50% {
+        background-size: 120% 150%;
+	}
+	100% {
+		background-size: 125% 145%;
+	}
+}
+
+/*
+** ENEMIES
+*/
+
+.enemy{
+    width:50px;
+    height: 50px;
+    position: absolute;
+    background-size: 100%;
+    cursor: url('../assets/coursors/hand_gc.png');
+
+}
+
+.animate-float{
+  animation: float 6s ease-in-out infinite;
+}
+
+.dead{
+  background:url('../assets/enemies/1_d.png');
+  background-size: 100%;
+}
+
+.animate-pump{
+  animation: pump 0.5s ease-in-out;
+}
+
+@keyframes pump {
+	0% {
+		transform: translatey(0px) scale(1,1);
+	}
+	50% {
+		transform: translatey(-10px) scale(1.2,1.2);
+	}
+	100% {
+		transform: translatey(0px) scale(1,1);
+	}
+}
+
+@keyframes float {
+	0% {
+		transform: translatey(0px) rotate(15deg) scale(1,1);
+	}
+	50% {
+		transform: translatey(-10px) rotate(-15deg) scale(1.2,1.2);
+	}
+	100% {
+		transform: translatey(0px) rotate(15deg) scale(1,1);
+	}
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+/*
+** GAME OVER
+*/
+
+#game-over-conatiner{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 9999;
+    background-color: rgba(215,32,32,0.8);
+    display:grid;
+    align-content: center;
+    justify-content: center;
+}
+
+#game-over-inner{
+    background-color: #fff;
+    text-align: center;
+    padding: 20px;
+    max-width: 90%;
+    width:400px;
+    //cursor:url('http://w17.snunit.k12.il/images/big_arrow.png'),auto;
+
+}
+
+
+/*
+** MISC
+*/
+
+.align-left{
+    text-align:left;
+}
+.align-right{
+    text-align:right;
+}
+.center{
+  text-align:center;
+}
+
+.yellow{
+  color: #ffd304;
+}
+
+/*
+** TYPOGRAPHY 
+*/
+
+#time-counter-text{
+    text-align:center;
+    width:100%;
+    display:grid;
+    grid-template-columns: 5fr 2fr 5fr;
+    line-height: 1em;
+    color:#fff;
+}
+
+#time-counter-number, #enemies-count-number, #level-count-number {
+    font-family: 'Permanent Marker', cursive;
+    font-size:1.3em;
+}
+
+#enemies-count-text{
+    max-width: 150px;
+    line-height: 1em;
+    text-align:center;
+    width:100%;
+    display:grid;
+    grid-template-columns: 1fr 11fr;
+    line-height: 1em;
+    color:#aa1616;
+}
+
+#enemies-count-number{
+    width:15px;
+    padding-right: 10px;
+    display: inline-block;
+    text-align: right;
+    
+}
+
+#level-count-text{
+    max-width:100px;
+    line-height: 1em;
+    
+    text-align:center;
+    width:100%;
+    display:grid;
+    grid-template-columns: 1fr 11fr;
+    color:#aa1616;
+    
+}
+
+#level-count-number{
+    width:15px;
+    padding-left: 10px;
+    display: inline-block;
+    text-align: left;
+}
+
