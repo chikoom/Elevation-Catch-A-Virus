@@ -15,7 +15,10 @@ const GameArea = () => {
 
       $gameAreaContainer.append(enemyRender.renderEnemy(enemy))
     }
-    
+
+    if(gameState.gameStart === true)
+      $gameAreaContainer.append($('<div id="game-block-screen"></div>'))
+
     return $gameAreaContainer
   }
 
